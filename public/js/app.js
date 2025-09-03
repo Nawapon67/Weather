@@ -99,18 +99,15 @@ class WeatherApp {
       this.showLoading();
 
       // Get current weather
-      const weatherResponse = await fetch(
-        `/api/weather/current?city=${encodeURIComponent(city)}`
-      );
+      const weatherResponse = await fetch(`/api/weather?city=${encodeURIComponent(city)}`)
+      ;
       if (!weatherResponse.ok) {
         throw new Error("ไม่สามารถดึงข้อมูลสภาพอากาศได้");
       }
       const weatherData = await weatherResponse.json();
 
       // Get forecast
-      const forecastResponse = await fetch(
-        `/api/weather/forecast?city=${encodeURIComponent(city)}`
-      );
+      const forecastResponse = await ffetch(`/api/weather?city=${encodeURIComponent(city)}`);
       if (!forecastResponse.ok) {
         throw new Error("ไม่สามารถดึงข้อมูลพยากรณ์อากาศได้");
       }
@@ -136,9 +133,8 @@ class WeatherApp {
       this.showLoading();
 
       // Get current weather
-      const weatherResponse = await fetch(
-        `/api/weather/current?lat=${lat}&lon=${lon}`
-      );
+      const weatherResponse = await fetch(`/api/weather?lat=${latitude}&lon=${longitude}`)
+;
       if (!weatherResponse.ok) {
         throw new Error("ไม่สามารถดึงข้อมูลสภาพอากาศได้");
       }
